@@ -3,9 +3,9 @@ from .models import Breakfast, Lunch, Dinner
 
 # Register your models here.
 class MenuAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'new_price', 'old_price', 'is_published', 'is_special_menu')
+    list_display = ('id', 'title', 'price', 'is_published', 'is_special_menu')
     list_display_links = ('id', 'title')
-    search_fields = ('title', 'new_price', 'old_price')
+    search_fields = ('title', 'price')
     list_editable = ('is_published', 'is_special_menu')
     list_per_page = 10
 

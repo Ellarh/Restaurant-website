@@ -5,8 +5,7 @@ from django.db import models
 class Breakfast(models.Model):
     title = models.CharField(max_length=100)
     food_category = models.CharField(max_length=50, blank=True)
-    new_price = models.FloatField()
-    old_price = models.FloatField(blank=True)
+    price = models.FloatField()
     image = models.ImageField(upload_to='photos/%Y/%m/%d/')
     review_number = models.IntegerField()
     is_published = models.BooleanField(blank=True)
@@ -18,8 +17,7 @@ class Breakfast(models.Model):
 class Lunch(models.Model):
     title = models.CharField(max_length=100)
     food_category = models.CharField(max_length=50, blank=True)
-    new_price = models.FloatField()
-    old_price = models.FloatField(blank=True)
+    price = models.FloatField()
     image = models.ImageField(upload_to='photos/%Y/%m/%d/')
     review_number = models.IntegerField()
     is_published = models.BooleanField(blank=True)
@@ -31,8 +29,7 @@ class Lunch(models.Model):
 class Dinner(models.Model):
     title = models.CharField(max_length=100)
     food_category = models.CharField(max_length=50, blank=True)
-    new_price = models.FloatField()
-    old_price = models.FloatField(blank=True)
+    price = models.FloatField()
     image = models.ImageField(upload_to='photos/%Y/%m/%d/')
     review_number = models.IntegerField()
     is_published = models.BooleanField(blank=True)

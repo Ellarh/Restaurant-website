@@ -11,7 +11,7 @@
                 <div class="col-lg-5 col-12 m-auto">
                     <div class="heroText">
 
-                        <h1 class="text-white mb-lg-5 mb-3">Delicious Steaks</h1>
+                        <h1 class="text-white mb-lg-5 mb-3">Delicious Pasta</h1>
 
                         <div class="c-reviews my-3 d-flex flex-wrap align-items-center">
                             <div class="d-flex flex-wrap align-items-center">
@@ -30,80 +30,54 @@
                         </div>
                     </div>
                 </div>
-
+                {% if dinner %}
+                {% for dinner in dinner %}
                 <div class="col-lg-7 col-12">
                     <div id="carouselExampleCaptions" class="carousel carousel-fade hero-carousel slide"
                          data-bs-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="carousel-image-wrap">
-                                    <img src="images/slide/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
+                                    <img src="{% static 'img/pexels-chan-walrus-941861.jpg' %}"
                                          class="img-fluid carousel-image" alt="">
                                 </div>
-
                                 <div class="carousel-caption">
                                             <span class="text-white">
                                                 <i class="bi-geo-alt me-2"></i>
-                                                Manhattan, New York
+                                                Lagos, Nigeria
                                             </span>
 
                                     <h4 class="hero-text">Fine Dining Restaurant</h4>
                                 </div>
                             </div>
-
-                            <div class="carousel-item">
+                                <div class="carousel-item">
                                 <div class="carousel-image-wrap">
-                                    <img src="images/slide/jason-leung-O67LZfeyYBk-unsplash.jpg"
+                                    <img src="{{ dinner.image.url }}"
                                          class="img-fluid carousel-image" alt="">
                                 </div>
 
                                 <div class="carousel-caption">
                                     <div class="d-flex align-items-center">
-                                        <h4 class="hero-text">Steak</h4>
+                                        <h4 class="hero-text">{{ dinner.title }}</h4>
 
-                                        <span class="price-tag ms-4"><small>$</small>26.50</span>
+                                        <span class="price-tag ms-4"><small>$</small>{{ dinner.price }}</span>
                                     </div>
 
-                                    <div class="d-flex flex-wrap align-items-center">
-                                        <h5 class="reviews-text mb-0 me-3">3.8/5</h5>
+<!--                                    <div class="d-flex flex-wrap align-items-center">-->
+<!--                                        <h5 class="reviews-text mb-0 me-3">3.8/5</h5>-->
 
-                                        <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                        </div>
-                                    </div>
+<!--                                        <div class="reviews-stars">-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star-fill reviews-icon"></i>-->
+<!--                                            <i class="bi-star reviews-icon"></i>-->
+<!--                                            <i class="bi-star reviews-icon"></i>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
                                 </div>
                             </div>
-
-                            <div class="carousel-item">
-                                <div class="carousel-image-wrap">
-                                    <img src="images/slide/ivan-torres-MQUqbmszGGM-unsplash.jpg"
-                                         class="img-fluid carousel-image" alt="">
-                                </div>
-
-                                <div class="carousel-caption">
-                                    <div class="d-flex align-items-center">
-                                        <h4 class="hero-text">Sausage Pasta</h4>
-
-                                        <span class="price-tag ms-4"><small>$</small>18.25</span>
-                                    </div>
-
-                                    <div class="d-flex flex-wrap align-items-center">
-                                        <h5 class="reviews-text mb-0 me-3">4.2/5</h5>
-
-                                        <div class="reviews-stars">
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star-fill reviews-icon"></i>
-                                            <i class="bi-star reviews-icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
+                            {% endif %}
                         </div>
 
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
@@ -125,7 +99,7 @@
 
         <div class="video-wrap">
             <video autoplay="" loop="" muted="" class="custom-video" poster="">
-                <source src="{% static 'video/production_ID_3769033.mp4' %}" type="video/mp4">
+                <source src="{% static 'video/production ID_5101338.mp4' %}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -140,23 +114,24 @@
                 <div class="col-12">
                     <h2 class="text-center mb-lg-5 mb-4">Special Menus</h2>
                 </div>
-
-                <div class="col-lg-4 col-md-6 col-12">
+                {% if breakfast %}
+                    {% for breakfast in breakfast %}
+                    <div class="col-lg-4 col-md-6 col-12">
                     <div class="menu-thumb">
                         <div class="menu-image-wrap">
-                            <img src="images/breakfast/brett-jordan-8xt8-HIFqc8-unsplash.jpg"
+                            <img src="{{ breakfast.image.url }}"
                                  class="img-fluid menu-image" alt="">
 
                             <span class="menu-tag bg-warning">Breakfast</span>
                         </div>
 
                         <div class="menu-info d-flex flex-wrap align-items-center">
-                            <h4 class="mb-0">Morning Fresh</h4>
+                            <h4 class="mb-0">{{ breakfast.title }}</h4>
 
-                            <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>12.50</span>
+                            <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>{{ breakfast.price }}</span>
 
                             <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                <h6 class="reviews-text mb-0 me-3">4.3/5</h6>
+<!--                                <h6 class="reviews-text mb-0 me-3">4.3/5</h6>-->
 
                                 <div class="reviews-stars">
                                     <i class="bi-star-fill reviews-icon"></i>
@@ -166,125 +141,75 @@
                                     <i class="bi-star reviews-icon"></i>
                                 </div>
 
-                                <p class="reviews-text mb-0 ms-4">102 Reviews</p>
+                                <p class="reviews-text mb-0 ms-4">{{ breakfast.review_number }} Reviews</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                    {% endfor %}
+                {% else %}
+                <div class="col-md-6">
+                    <p>No Special Menu Available</p>
+                </div>
+                {% endif %}
 
-                <div class="col-lg-4 col-md-6 col-12">
+                {% if lunch %}
+                    {% for lunch in lunch %}
+                    <div class="col-lg-4 col-md-6 col-12">
                     <div class="menu-thumb">
                         <div class="menu-image-wrap">
-                            <img src="images/lunch/farhad-ibrahimzade-MGKqxm6u2bc-unsplash.jpg"
+                            <img src="{{ lunch.image.url }}"
                                  class="img-fluid menu-image" alt="">
 
                             <span class="menu-tag bg-warning">Lunch</span>
                         </div>
 
                         <div class="menu-info d-flex flex-wrap align-items-center">
-                            <h4 class="mb-0">Tooplate Soup</h4>
+                            <h4 class="mb-0">{{ lunch.title }}</h4>
 
-                            <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>24.50</span>
+                            <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>{{ lunch.price }}</span>
 
                             <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                <h6 class="reviews-text mb-0 me-3">3/5</h6>
+<!--                                <h6 class="reviews-text mb-0 me-3">4.3/5</h6>-->
 
                                 <div class="reviews-stars">
                                     <i class="bi-star-fill reviews-icon"></i>
                                     <i class="bi-star-fill reviews-icon"></i>
                                     <i class="bi-star-fill reviews-icon"></i>
-                                    <i class="bi-star reviews-icon"></i>
+                                    <i class="bi-star-fill reviews-icon"></i>
                                     <i class="bi-star reviews-icon"></i>
                                 </div>
 
-                                <p class="reviews-text mb-0 ms-4">50 Reviews</p>
+                                <p class="reviews-text mb-0 ms-4">{{ lunch.review_number }} Reviews</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="menu-thumb">
-                        <div class="menu-image-wrap">
-                            <img src="images/dinner/keriliwi-c3mFafsFz2w-unsplash.jpg" class="img-fluid menu-image"
-                                 alt="">
-
-                            <span class="menu-tag bg-warning">Dinner</span>
-                        </div>
-
-                        <div class="menu-info d-flex flex-wrap align-items-center">
-                            <h4 class="mb-0">Premium Steak</h4>
-
-                            <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>45</span>
-
-                            <del class="ms-4"><small>$</small>150</del>
-
-                            <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                <h6 class="reviews-text mb-0 me-3">3/5</h6>
-
-                                <div class="reviews-stars">
-                                    <i class="bi-star-fill reviews-icon"></i>
-                                    <i class="bi-star-fill reviews-icon"></i>
-                                    <i class="bi-star-fill reviews-icon"></i>
-                                    <i class="bi-star reviews-icon"></i>
-                                    <i class="bi-star reviews-icon"></i>
-                                </div>
-
-                                <p class="reviews-text mb-0 ms-4">86 Reviews</p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+                {% else %}
+                <div class="col-md-6">
+                    <p>No Special Menu Available</p>
                 </div>
+                {% endif %}
 
-                <div class="col-lg-4 col-md-6 col-12">
+                {% if dinner %}
+                    {% for dinner in dinner %}
+                    <div class="col-lg-4 col-md-6 col-12">
                     <div class="menu-thumb">
                         <div class="menu-image-wrap">
-                            <img src="images/dinner/farhad-ibrahimzade-ZipYER3NLhY-unsplash.jpg"
+                            <img src="{{ dinner.image.url }}"
                                  class="img-fluid menu-image" alt="">
 
                             <span class="menu-tag bg-warning">Dinner</span>
                         </div>
 
                         <div class="menu-info d-flex flex-wrap align-items-center">
-                            <h4 class="mb-0">Seafood Set</h4>
+                            <h4 class="mb-0">{{ dinner.title }}</h4>
 
-                            <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>86</span>
-
-                            <del class="ms-4"><small>$</small>124</del>
+                            <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>{{ dinner.price }}</span>
 
                             <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                <h6 class="reviews-text mb-0 me-3">3/5</h6>
-
-                                <div class="reviews-stars">
-                                    <i class="bi-star-fill reviews-icon"></i>
-                                    <i class="bi-star-fill reviews-icon"></i>
-                                    <i class="bi-star-fill reviews-icon"></i>
-                                    <i class="bi-star reviews-icon"></i>
-                                    <i class="bi-star reviews-icon"></i>
-                                </div>
-
-                                <p class="reviews-text mb-0 ms-4">44 Reviews</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="menu-thumb">
-                        <div class="menu-image-wrap">
-                            <img src="images/breakfast/louis-hansel-dphM2U1xq0U-unsplash.jpg"
-                                 class="img-fluid menu-image" alt="">
-
-                            <span class="menu-tag bg-warning">Breakfast</span>
-                        </div>
-
-                        <div class="menu-info d-flex flex-wrap align-items-center">
-                            <h4 class="mb-0">Burger Set</h4>
-
-                            <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>20.50</span>
-
-                            <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                <h6 class="reviews-text mb-0 me-3">4.3/5</h6>
+<!--                                <h6 class="reviews-text mb-0 me-3">4.3/5</h6>-->
 
                                 <div class="reviews-stars">
                                     <i class="bi-star-fill reviews-icon"></i>
@@ -294,43 +219,17 @@
                                     <i class="bi-star reviews-icon"></i>
                                 </div>
 
-                                <p class="reviews-text mb-0 ms-4">102 Reviews</p>
+                                <p class="reviews-text mb-0 ms-4">{{ dinner.review_number }} Reviews</p>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6 col-12">
-                    <div class="menu-thumb">
-                        <div class="menu-image-wrap">
-                            <img src="images/lunch/farhad-ibrahimzade-D5c9ZciQy_I-unsplash.jpg"
-                                 class="img-fluid menu-image" alt="">
-
-                            <span class="menu-tag bg-warning">Lunch</span>
-                        </div>
-
-                        <div class="menu-info d-flex flex-wrap align-items-center">
-                            <h4 class="mb-0">Healthy Soup</h4>
-
-                            <span class="price-tag bg-white shadow-lg ms-4"><small>$</small>34.20</span>
-
-                            <div class="d-flex flex-wrap align-items-center w-100 mt-2">
-                                <h6 class="reviews-text mb-0 me-3">3/5</h6>
-
-                                <div class="reviews-stars">
-                                    <i class="bi-star-fill reviews-icon"></i>
-                                    <i class="bi-star-fill reviews-icon"></i>
-                                    <i class="bi-star-fill reviews-icon"></i>
-                                    <i class="bi-star reviews-icon"></i>
-                                    <i class="bi-star reviews-icon"></i>
-                                </div>
-
-                                <p class="reviews-text mb-0 ms-4">64 Reviews</p>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+                {% else %}
+                <div class="col-md-6">
+                    <p>No Special Menu Available</p>
                 </div>
-
+                {% endif %}
             </div>
         </div>
     </section>
