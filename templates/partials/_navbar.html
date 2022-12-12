@@ -6,7 +6,7 @@
                 </button>
 
                 <a class="navbar-brand" href="index.html">
-                    Crispy Kitchen
+                    Ella's Kitchen
                 </a>
 
                 <div class="d-lg-none">
@@ -16,23 +16,48 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="index.html">Home</a>
+                            <a
+                                {% if '/' == request.path %}
+                                class="nav-link active"
+                                {% else %}
+                                class="nav-link"
+                                {% endif %}
+
+                               href="{% url 'index' %}">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">Story</a>
+                            <a
+                                {% if 'about' in request.path %}
+                                class="nav-link active"
+                                {% else %}
+                                class="nav-link"
+                                {% endif %}
+                               href="{% url 'about' %}">Our Story</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="menu.html">Menu</a>
+                            <a
+                                {% if 'menu' in request.path %}
+                                class="nav-link active"
+                                {% else %}
+                                class="nav-link"
+                                {% endif %}
+                                href="{% url 'menu' %}">Menu</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="news.html">Our Updates</a>
+                            <a
+                              {% if 'news' in request.path %}
+                                class="nav-link active"
+                                {% else %}
+                                class="nav-link"
+                                {% endif %}
+                               href="{% url 'news' %}">Updates</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="contact.html">Contact  Us</a>
                         </li>
                     </ul>
                 </div>
