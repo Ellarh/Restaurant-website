@@ -9,5 +9,6 @@ class News(models.Model):
     news_content = models.TextField(blank=True)
     date_published = models.DateField(default=datetime.now, blank=True)
     is_published = models.BooleanField(blank=True)
+    is_latest = models.BooleanField(blank=True, default=True)
     def __str__(self):
         return self.title

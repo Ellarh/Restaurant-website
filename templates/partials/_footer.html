@@ -65,7 +65,8 @@
                     <div class="modal-body d-flex flex-column justify-content-center">
                         <div class="booking">
 
-                            <form class="booking-form row" role="form" action="#" method="post">
+                            <form class="booking-form row" role="form" action="{% url 'inquiry' %}" method="POST">
+                                {% csrf_token %}
                                 <div class="col-lg-6 col-12">
                                     <label for="name" class="form-label">Full Name</label>
 
