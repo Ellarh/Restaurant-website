@@ -7,7 +7,7 @@
             <div class="row">
 
                 <div class="col-12">
-                    <h2>Learning a fine dining experience</h2>
+                    <h2>{{ news.title }}</h2>
                 </div>
 
             </div>
@@ -19,50 +19,14 @@
             <div class="row">
 
                 <div class="col-lg-12 col-12">
-                    <img src="images/news/news-detail-header.jpg" class="img-fluid news-detail-image"
-                         alt="fine dining experience">
+                    <img src="{{ news.news_image.url }}" class="img-fluid news-detail-image"
+                         alt="image">
 
                     <div class="col-lg-10 col-10 mx-auto mt-5">
 
-                        <h4 class="mb-3">The best fine-dining experience at Crispy Kitchen</h4>
+                        <h4 class="mb-3">{{ news.title }}</h4>
 
-                        <p>Phasellus in augue at quam ornare malesuada. Sed magna lorem, dapibus nec lorem sed, pretium
-                            vulputate ante. In porttitor sapien urna, eu vulputate arcu pharetra non. Vivamus nec nulla
-                            quis leo sodales semper. Quisque sed ultricies tortor. Fusce porta pretium tellus, sit amet
-                            vulputate orci.</p>
-
-                        <ul class="list">
-                            <li class="list-item">Pasta stats published in the International</li>
-
-                            <li class="list-item">Rice flour, or legumes such as beans</li>
-
-                            <li class="list-item">Belgian family developed major food poisoning symptoms</li>
-                        </ul>
-
-                        <p>Pasta is a type of food typically made from an unleavened dough of wheat flour mixed with
-                            water or eggs, and formed into sheets or other shapes, then cooked by boiling or baking.
-                            Rice flour, or legumes such as beans or lentils, are sometimes used in place of wheat flour
-                            to yield a different taste</p>
-
-                        <div class="ratio ratio-16x9 my-5">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/6vebbDZxoKE?controls=0"
-                                    title="YouTube video player" frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
-                        </div>
-
-                        <p>Crispy Kitchen is free Bootstrap 5 HTML template provided by Tooplate. You are free to use
-                            this layout for commercial purposes. You are NOT allowed to redistribute the template ZIP
-                            file on any template donwnload website. Please <a href="https://www.tooplate.com/contact"
-                                                                              target="_blank">contact us</a> for more
-                            information.</p>
-
-                        <h5 class="mt-4 mb-3">Pasta with Cream Sauce Recipe</h5>
-
-                        <p>Pasta is a type of food typically made from an unleavened dough of wheat flour mixed with
-                            water or eggs, and formed into sheets or other shapes, then cooked by boiling or baking.
-                            Rice flour, or legumes such as beans or lentils, are sometimes used in place of wheat flour
-                            to yield a different taste</p>
+                        <p>{{ news.news_content }}</p>
                     </div>
                 </div>
 

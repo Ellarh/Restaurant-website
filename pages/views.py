@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from menu.models import Breakfast, Lunch, Dinner
 from news.models import News
+from pages.models import TeamMembers
 
 # Create your views here.
 def index(request):
@@ -19,4 +20,8 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'pages/about.html')
+    team = TeamMembers.objects.all().filter(is_part_of_team=True)
+    context = {
+        'team': team
+    }
+    return render(request, 'pages/about.html', context)

@@ -18,10 +18,7 @@ def contact(request):
 
         send_mail(
             'Restaurant Contact Message',
-            f'You have received a message from {contact_name},'
-                    f'Email address: {contact_email}'
-                    f'Phone number: {contact_phone}'
-                    f'Message: {contact_message} ',
+            'You have gotten a message from ' + contact_name + '. Sign into the Admin Panel to see it!',
             'emmandukwe26@gmail.com',
             ['ellamoves01@gmail.com'],
             fail_silently=False
